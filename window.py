@@ -108,6 +108,12 @@ class TerminalWindow(object):
         
         self.entries[0].pos[0][1] = self.entry_offset
 
+    def go_darker(self, val):
+        self.canvas.bgcolor = self.canvas.bgcolor.darker(dv=val)
+
+    def go_lighter(self, val):
+        self.canvas.bgcolor = self.canvas.bgcolor.lighter(dv=val)
+
     def show_input(self, text):
         self.entries[0].text = CONSOLE_PREFIX + text
         self.entries[0].update()
@@ -139,4 +145,3 @@ class TerminalWindow(object):
             self.show_input(self.text_buffer+'_')
         if (self.entry_blink%2) == 1:
             self.show_input(self.text_buffer)
-        self.entry_blink += 1
